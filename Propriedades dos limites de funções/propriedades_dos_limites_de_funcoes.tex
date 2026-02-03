@@ -1,0 +1,96 @@
+%---------Preambulo------------------------------------------------
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}    % acentos (se não usar XeLaTeX)
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+\usepackage{amsmath}   % fórmulas avançadas
+\usepackage{amssymb}   % símbolos matemáticos
+\usepackage{amsfonts}  % fontes matemáticas
+\usepackage{amsthm}    % teoremas
+\usepackage{geometry}  % margens
+\usepackage{graphicx}  % imagens
+\usepackage{hyperref}  % links
+\usepackage{enumitem}
+\usepackage{indentfirst} %paragrafo
+\newtheorem{theorem}{Teorema}
+\newtheorem{definition}{Definição}
+
+\title{Demonstrações das propriedades básicas dos limites de funções}
+\author{Por Kayky Lopes Teixeira Martins}
+\date{January 2026}
+%---------Conteudo-------------------------------------------------
+\begin{document}
+
+\maketitle
+\indent O objetivo desse texto é servir como material didático ou um material de revisão sobre as propriedades básicas de limites de funções. Nele começamos recapitulando o conceito e a definição formal de limites de funções, e prossiguimos apresentando e demonstrando as pricipais propriedades desses limites.
+
+\section{Introdução}
+Dada uma função real $f$ qualquer, pode ser interessante a nós descobrir qual valor $f(x)$ se aproxima conforme tomemos valores de entradas cada vez mais próximos de um valor específico. Observe que não nos importa o ponto $a$ em si, pois a função pode nem estar definida para $x=a$. O que queremos é estudar e descobrir o comportamento da função para valores ao redor de $a$.
+
+Seja esse valor específico $x=a$. Então analisamos o que acontece com $f(x)$ conforme $x$ se aproxima de $a$, por valores maiores que $a$. Depois fazemos o mesmo para valores menores que $a$, se aproximando cada vez mais de $a$. Fazemos isso porque queremos achar o valor para o qual a função está se aproximando, e uma noção mais forte de "estar se aproximando" \, deve independer da escolha de valores maiores ou menores que $a$.
+
+Dizemos então que um valor $L$ é o limite de uma função $f$ em $a$ se, conforme os valores de $x$ se aproximam do ponto $a$, não importando se tomarmos valores maiores ou menores que $a$, $f(x)$ se aproxima de $L$ o quanto quisermos. Representamos esse fato por:
+
+\[ L = \lim_{x \to a} f(x)\]
+
+Porém, na matemática precisamos definir os conceitos da maneira mais clara possível. Para isso utilizamos símbolos matemáticos, que generalizam as ideias que as palavras possuem. No caso do limite de uma função num ponto $a$, o definimos matematicamente assim:
+
+\[ L = \lim_{x \to a} f(x) \iff \forall \epsilon > 0,\exists \, \delta> 0 \, ; 0<\lvert x-a \rvert  < \delta \Rightarrow \lvert f(x) - L\rvert< \epsilon
+\]
+
+Isso pode parecer confuso a princípio, mas lhe garanto que representa a mesma ideia discutida mais cedo.
+
+Lembra que dissemos que nos atentaríamos para valores ao redor de $a$? Pois bem, a notação $0<\lvert x - a\rvert<\delta$ representa isso. O delta ($\delta$), positivo, serve como uma "fronteira"\, ao redor de $a$. Nosso foco são os valores cada vez mais próximos de $a$, assim só olhamos para os valores de dentro dessa "fronteira"\,: valores cuja distância para $a$ seja menor que $\delta$.
+
+Queremos que, ao tomarmos valores de $x \in (a - \delta, a + \delta)$, $f(x)$ esteja arbitrariamente próximo de $L$. É por isso que fazemos $\lvert f(x) - L\rvert< \epsilon$, para todo $\epsilon>0$. A noção de $f(x)$ se aproximar de $L$ o quanto quisermos está intimamente relacionada ao fato de não importar quão pequeno seja o $\epsilon$: por exemplo, pegamos $\epsilon = 0,1$, depois $\epsilon = 0,01$, depois $\epsilon = 0,001$, depois $\epsilon = 0,0001$ e continuamos tomando $\epsilon>0$ cada vez menores.
+
+\section{Propriedades básicas dos limites de funções}
+
+Seja $k \in \mathbb{R}$ e suponha que existam os limites 
+$\lim_{x \to a} f(x)$ e $\lim_{x \to a} g(x)$.
+Então são válidas as seguintes propriedades:
+
+
+\begin{enumerate}[label=(\roman*)]
+\item $\lim_{x \to a} k = k$
+\item $\lim_{x \to a}[f(x) \pm g(x)] = \lim_{x \to a} f(x) \pm \lim_{x \to a} g(x) $
+\item $\lim_{x \to a} k\cdot f(x) = k \cdot \lim_{x \to a} f(x)$
+\item $\lim_{x \to a} [f(x) \cdot g(x)] = \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x) $
+\item $\lim_{x \to a} \dfrac{f(x)}{g(x)} = \dfrac{\lim_{x \to a} f(x) }{\lim_{x \to a} g(x)} \text{, desde que } g(x) \neq 0 \text{ e } \lim_{x \to a} g(x) \neq 0$
+\end{enumerate}
+\subsection*{Demonstrações:}
+\begin{enumerate}[label=(\roman*)]
+\item Pela definição de limite, para todo $\epsilon >0$ devemos achar ao menos um $\delta$ tal que: 
+\[ 0<\lvert x-a \rvert  < \delta \Rightarrow \lvert f(x) - L\rvert< \epsilon\]
+
+Como $f(x) = k $ e $L=k$, ao substituirmos na expressão acima obtemos:
+\[0<\lvert x-a \rvert  < \delta \Rightarrow \lvert k - k\rvert = 0< \epsilon\]
+
+Como por definição $\epsilon>0$, chegamos a conclusão que qualquer $\delta$ verifica a definição de limite, e portanto, $\lim_{x \to a} k = k$.
+\item Comecemos pela definição de limite para cada uma das funções:
+\[F = \lim_{x \to a} f(x) \iff \forall \epsilon_1 > 0,\exists \, \delta_1> 0 \, ; 0<\lvert x-a \rvert  < \delta_1 \Rightarrow \lvert f(x) - F\rvert< \epsilon_1\]
+
+\[G = \lim_{x \to a} g(x) \iff \forall \epsilon_2 > 0,\exists \, \delta_2> 0 \, ; 0<\lvert x-a \rvert  < \delta_2 \Rightarrow \lvert g(x) - G\rvert< \epsilon_2\]
+
+Não definimos $\epsilon_1$ e $\epsilon_2$ por eles serem diferentes. Apenas porque isso simplificará nossa vida adiante.
+
+Em provas de limites pela definição formal, sempre iniciamos analisando a parte final  $\lvert f(x) - L\rvert < \epsilon$. Nesse item, queremos para todo $\epsilon>0$, achar ao menos um $\delta$ tal que $\lvert f(x) \pm g(x) - (F \pm G)\rvert < \epsilon$. Então vamos desenvolver $\lvert f(x) \pm g(x) - (F \pm G)\rvert$: 
+\[\lvert f(x) \pm g(x) - (F \pm G)\rvert = \lvert f(x) -F \pm g(x) \mp G\rvert = \lvert (f(x) -F) \pm (g(x) - G)\rvert \tag{1}
+\]
+
+Pela desigualdade triangular $\lvert a \pm b \rvert \leq\lvert a \rvert + \lvert b \rvert$, (1) é menor que: 
+\[\lvert (f(x) -F) \pm (g(x) - G)\rvert \leq \lvert f(x) -F \rvert + \lvert g(x) -G \rvert \tag{2}\] 
+
+Para que possamos utilizar os epsilons a partir de (2), devemos tomar $\delta=\min{{\delta_1,\delta_2}}$, pois assim valerá tanto que $\lvert f(x) - F\rvert< \epsilon_1$ quanto $\lvert g(x) - G\rvert< \epsilon_2$, e assim:
+\[\lvert f(x) -F \rvert + \lvert g(x) -G \rvert < \epsilon_1 + \epsilon_2\]
+
+Observer que $\epsilon_1 \text{ e } \epsilon_2$ são valores positivos quaisqueres. Por isso, podemo tomar um $\epsilon_1=\epsilon_2=\dfrac{\epsilon}{2}$, já que assim obteremos:
+\[\lvert f(x) \pm g(x) - (F \pm G)\rvert < \epsilon_1 + \epsilon_2 = \epsilon\]
+
+\end{enumerate}
+
+
+
+\end{document}

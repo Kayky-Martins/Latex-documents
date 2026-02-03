@@ -36,7 +36,7 @@
 *.run.xml
 
 ## O PDF final (Mantenha comentado com # se quiser que o PDF suba para o GitHub)
-# *.pdf
+*.pdf
 
 ## Pastas de cache de editores
 .texpadtmp/
